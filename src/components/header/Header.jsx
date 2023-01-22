@@ -6,13 +6,12 @@ const Header = () => {
   return (
     <>
     <Navbar/>
-    <div className='container-fluid d-flex flex-column justify-content-center align-items-center' style={{backgroundColor:"#8a2be2",height:"70vh"}}>
+    <div className='container-fluid d-flex flex-column justify-content-center align-items-center text-center mt-5' style={{backgroundColor:"#8a2be2",height:"60vh"}}>
 
-      <h3 className='text-white'>Sub heading</h3>
-      <div className='text-white my-4'>
+      <div className='text-white'>
       <h2><TypingAnimation/></h2>
       </div>
-      <p className='text-white'>Get multiple ai tools on a single platform and free to use. No signup is required.</p>
+      <p className='text-white'>Get multiple ai tools on a single platform and free to use.<br/> No signup is required.</p>
       
     </div>
     </>
