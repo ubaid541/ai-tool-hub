@@ -11,14 +11,4 @@
     transform: scale(1.1);
 
   }
-
-
-  .navbar {
-    background-color: transparent;
-    transition: background-color 0.5s ease;
-  }
-  
-  .scrolled {
-    background-color: #070335;
-  }
   

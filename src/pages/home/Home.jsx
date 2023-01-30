@@ -4,6 +4,8 @@ import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
 import imageginie from "../../assets/images/app-img/imageginie.png"
 import assist from "../../assets/images/app-img/assist.png"
+import summarizer from "../../assets/images/app-img/summarizer.png"
+import "../../components/GlobalCss.css"
 
 
 const Home = () => {
@@ -21,7 +23,15 @@ const Home = () => {
       heading:"Smart Assist",
       desc : "Here is the quick description of the card to check it's styling.",
       img:assist,
-      link:"https://smart-assist-1.netlify.app/"
+      link:"https://smart-assist-1.netlify.app/",
+      app:"https://play.google.com/store/apps/details?id=io.ionic.smartassist"
+    },
+    {
+      id:3,
+      heading:"Summary Genius",
+      desc : "Get a quick summary of long articles.",
+      img:summarizer,
+      link:"https://summary-genius.netlify.app/"
     }
   ]
   return (
@@ -37,12 +47,16 @@ const Home = () => {
   />
 
   <div className="card-body">
-    <h5 className="card-title">Smart Assist</h5>
-    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 className="card-title mb-3">{app?.heading}</h5>
+    <p className="card-text">{app?.desc}</p>
    <div className='card-footer d-flex justify-content-between'>
-   <a href={app.link} className="btn btn-dark btn-sm me-2" target="_blank">
-    <BsFillArrowUpRightCircleFill className='me-1'/>Visit</a>
-    <a href="https://nimble-quokka-88683e.netlify.app/" className="btn btn-primary btn-sm" target="_blank"><IoLogoGooglePlaystore className="me-1"/>Get App</a>
+   <a href={app.link} className="btn btn-sm me-2" >
+    <BsFillArrowUpRightCircleFill className='me-1'/>Use</a>
+    {app?.app &&(
+       <a href="https://nimble-quokka-88683e.netlify.app/" className="btn btn-sm" target="_blank"><IoLogoGooglePlaystore className="me-1"/>Get App</a>
+
+    )
+    }
    </div>
   </div>
 </div>
