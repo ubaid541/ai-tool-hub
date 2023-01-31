@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import logoBlue from "../../assets/images/app-img/logo/logoBlue.png"
 
 const Footer = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -13,7 +14,7 @@ const Footer = () => {
     <p className="col-md-4 mb-0 text-muted">Copyright © {currentYear} Ai Tools Hub</p>
 
     <a href="/" className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-    ai tool hub
+    <img src={logoBlue} width="70px"/>
     </a>
 
     <ul className="nav col-md-4 justify-content-end">

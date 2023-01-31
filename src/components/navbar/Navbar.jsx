@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./Navbar.css"
 import logoBlue from "../../assets/images/app-img/logo/logoBlue.png"
 import logoWhite from "../../assets/images/app-img/logo/logoWhite.png"
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -33,9 +34,9 @@ const Navbar = () => {
           <a className="nav-link active" aria-current="page" href="/">Home</a>
         </li> */}
         <li className="nav-item">
-          <a className="btn btn-sm mt-1 "aria-current="page" href="/auth/register" style={{backgroundColor: "#9D34DA"}}>
+          <Link className="btn btn-sm mt-1 "aria-current="page" to="/auth/register" style={{backgroundColor: "#9D34DA"}}>
                     SIGN UP
-          </a>
+          </Link>
         </li>
         {/* <li className="nav-item">
           <a className="nav-link" href="#">Feedback</a>

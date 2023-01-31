@@ -6,6 +6,7 @@ import imageginie from "../../assets/images/app-img/imageginie.png"
 import assist from "../../assets/images/app-img/assist.png"
 import summarizer from "../../assets/images/app-img/summarizer.png"
 import "../../components/GlobalCss.css"
+import { Header } from '../../components';
 
 
 const Home = () => {
@@ -24,7 +25,7 @@ const Home = () => {
       desc : "Here is the quick description of the card to check it's styling.",
       img:assist,
       link:"https://smart-assist-1.netlify.app/",
-      app:"https://play.google.com/store/apps/details?id=io.ionic.smartassist"
+      appLink:"https://play.google.com/store/apps/details?id=io.ionic.smartassist"
     },
     {
       id:3,
@@ -35,13 +36,14 @@ const Home = () => {
     }
   ]
   return (
-
+    <>
+   
       <section id='app_list' className='my-5'>
-        <div className='row d-flex justify-content-center container'>
+             <div className='row d-flex justify-content-center container'>
           {
             appData?.map((app,index)=>(
               <div className='app card-group col-lg-3 col-md-4 col-12 text-center mx-4 my-4'>
-          <div className="card mx-auto" style={{width:"18rem"}}>
+          <div key={appData?.id} className="card mx-auto" style={{width:"18rem"}}>
 
             <img src={app?.img} className="card-img-top img-fluid  border-bottom border-dark" alt="app image" style={{height:"300px",width:"300px"}}
   />
@@ -52,8 +54,8 @@ const Home = () => {
    <div className='card-footer d-flex justify-content-between'>
    <a href={app.link} className="btn btn-sm me-2" >
     <BsFillArrowUpRightCircleFill className='me-1'/>Use</a>
-    {app?.app &&(
-       <a href="https://nimble-quokka-88683e.netlify.app/" className="btn btn-sm" target="_blank"><IoLogoGooglePlaystore className="me-1"/>Get App</a>
+    {app?.appLink &&(
+       <a href={app?.appLink} className="btn btn-sm" target="_blank"><IoLogoGooglePlaystore className="me-1"/>Get App</a>
 
     )
     }
@@ -65,7 +67,7 @@ const Home = () => {
           }
         </div>
       </section>
-
+</>
   )
 }
 
