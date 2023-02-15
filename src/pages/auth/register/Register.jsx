@@ -18,7 +18,7 @@ const Register = () => {
      const password = formData.find(input => input.type === "password").value;
 
     try {
-      const res = await axios.post("http://localhost:9000/user/register", {
+      const res = await axios.post("https://real-jade-snail-veil.cyclic.app/user/register", {
         name,
         email,
         password

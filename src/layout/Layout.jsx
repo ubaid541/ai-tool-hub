@@ -5,9 +5,16 @@ import { useLocation } from 'react-router-dom'
 const Layout = () => {
   const location = useLocation()
   const pathname = location.pathname
+  const text = "Register to get the app."
   return (
     <>
-        <Header/>
+    {pathname.includes("auth/register") ?
+    (
+      <Header text={text}/>
+    ):(
+      <Header/>
+    )
+    }
         <div>
             <AppContent/>
         </div>

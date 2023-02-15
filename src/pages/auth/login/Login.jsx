@@ -22,7 +22,7 @@ const Login = () => {
 
      dispatch({type:"LOGIN_START"})
     try {
-      const res = await axios.post("http://localhost:9000/user/login", {
+      const res = await axios.post("https://real-jade-snail-veil.cyclic.app/user/login", {
         email,
         password
       });
