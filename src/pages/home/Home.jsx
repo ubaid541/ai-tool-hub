@@ -10,19 +10,19 @@ import { Header } from '../../components';
 
 
 const Home = () => {
-
+  
   const appData = [
     {
       id:1,
       heading:"Image Ginie",
-      desc : "Here is the quick description of the card to check it's styling.",
+      desc : "Transform Your Ideas into Stunning Images with Ease.",
       img:imageginie,
       link: "https://imageginie.netlify.app/"
     },
     {
       id:2,
       heading:"Smart Assist",
-      desc : "Here is the quick description of the card to check it's styling.",
+      desc : "Get Instant and Accurate Answers powered by GPT-3.",
       img:assist,
       link:"https://smart-assist-1.netlify.app/",
       appLink:"https://play.google.com/store/apps/details?id=io.ionic.smartassist"
@@ -37,7 +37,7 @@ const Home = () => {
   ]
   return (
     <>
-   
+
       <section id='app_list' className='my-5'>
              <div className='row d-flex justify-content-center container'>
           {

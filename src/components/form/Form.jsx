@@ -7,7 +7,7 @@ const Form = ({inputTypes, onSubmit,onClick}) => {
 
   // function to handle changes made to input fields
   const handleInputChange = (e, index) => {
-    console.log(e.target.value)
+
     const values = [...inputs];
     values[index].value = e.target.value;
     setInputs(values);
@@ -31,7 +31,7 @@ const Form = ({inputTypes, onSubmit,onClick}) => {
           className='form-control my-2'
             type={input.type}
             value={input.value}
-            placeholder={input.type}
+            placeholder={input.type === 'text' ? 'name' : input.type}
             autoComplete="off"
             onChange={(e) => handleInputChange(e, index)}
           />

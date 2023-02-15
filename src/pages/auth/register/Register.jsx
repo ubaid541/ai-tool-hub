@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import Form from '../../../components/form/Form'
 import axios from "axios"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const inputTypes = ['text', 'email','password'];
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
-
-  console.log("Upper form data",formData)
+  const navigate = useNavigate()
 
   const handleClick = async (e) => {
 
@@ -18,36 +17,44 @@ const Register = () => {
      const email = formData.find(input => input.type === "email").value;
      const password = formData.find(input => input.type === "password").value;
 
+    try {
+      const res = await axios.post("http://localhost:9000/user/register", {
+        name,
+        email,
+        password
+      });
+      console.log(res);
 
-     console.table("click: ",name,email,password)
+      setSuccess(res.data[0])
+      setTimeout(() => {
+        navigate('/auth/login')
+      }, 2000)
 
-    // try {
-    //   const res = await axios.post("https://koki.pk/abante/index.php?rt=a/account/login", {
-    //     loginname,
-    //     password,
-    //     api_key
-    //   });
-    //   console.log(res);
-    // } catch (err) {
-    //   console.error(err);
-    // }
+    } catch (err) {
+      console.error(err);
+
+      setError([true, err.response.data])
+      setTimeout(() => {
+        setError(false)
+      }, 3000)
+
+    }
   }
 
   const handleSubmit = (formData) => {
     setFormData(formData)
-    console.log("Submit form data: ",formData);
 }
   return (
     <>
     <h1 className='text-center mt-5'>Register</h1>
     {error && (
-      <div class="alert alert-danger" role="alert">
+      <div class="alert alert-danger text-center" role="alert">
      {error}
         </div>
     )
     }
     {success && (
-      <div class="alert alert-success" role="alert">
+      <div class="alert alert-success text-center" role="alert">
      {success}
         </div>
     )

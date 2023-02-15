@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Form from '../../../components/form/Form'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import {AuthContext} from "../../../context/AuthContext"
 
 const Login = () => {
   const inputTypes = ['email','password'];
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
+  const {user,dispatch} = useContext(AuthContext)
+  const navigate = useNavigate()
 
-  console.log("Upper form data",formData)
 
   const handleClick = async (e) => {
 
@@ -17,18 +20,27 @@ const Login = () => {
      const password = formData.find(input => input.type === "password").value;
 
 
-     console.table("click: ",email,password)
+     dispatch({type:"LOGIN_START"})
+    try {
+      const res = await axios.post("http://localhost:9000/user/login", {
+        email,
+        password
+      });
+  
+      dispatch({type:"LOGIN_SUCCESS",payload:[res.data.details,res.data.role]})
 
-    // try {
-    //   const res = await axios.post("https://koki.pk/abante/index.php?rt=a/account/login", {
-    //     loginname,
-    //     password,
-    //     api_key
-    //   });
-    //   console.log(res);
-    // } catch (err) {
-    //   console.error(err);
-    // }
+      setTimeout(() => {
+        navigate('/')
+      }, 2000)
+
+    } catch (err) {
+      dispatch({type:"LOGIN_FAILURE",payload:err.response.data})
+
+      setError([true, err.response.data.message])
+      setTimeout(() => {
+        setError(false)
+      }, 3000)
+    }
   }
 
   const handleSubmit = (formData) => {
@@ -37,9 +49,9 @@ const Login = () => {
 }
   return (
     <>
-    <h1 className='text-center mt-5'>Register</h1>
+    <h1 className='text-center mt-5'>Login</h1>
     {error && (
-      <div class="alert alert-danger" role="alert">
+      <div className="alert alert-danger text-center w-35" role="alert">
      {error}
         </div>
     )

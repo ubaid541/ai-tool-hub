@@ -1,11 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./Navbar.css"
-import logoBlue from "../../assets/images/app-img/logo/logoBlue.png"
 import logoWhite from "../../assets/images/app-img/logo/logoWhite.png"
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthContext'
+import axios from 'axios'
 
 const Navbar = () => {
+  const {user,dispatch} = useContext(AuthContext)
   const [scrolled, setScrolled] = useState(false);
+
+  const handleClick = (e)=>{
+    e.preventDefault()
+
+    const res =  axios.post("/user/logout")
+          dispatch({type:"LOGOUT"})
+         navigate("/")
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,7 +31,7 @@ const Navbar = () => {
     };
   }, []);
   return (
-    <div>
+    <>
       <nav className={`navbar navbar-expand-lg navbar-light ${scrolled ? 'scrolled' : ''} fixed-top`} >
   <div className="container">
     <a className="navbar-brand" href="/"><img src={scrolled ? logoWhite : logoWhite} width="100px"/></a>
@@ -34,9 +44,18 @@ const Navbar = () => {
           <a className="nav-link active" aria-current="page" href="/">Home</a>
         </li> */}
         <li className="nav-item">
-          <Link className="btn btn-sm mt-1 "aria-current="page" to="/auth/register" style={{backgroundColor: "#9D34DA"}}>
-                    SIGN UP
+          {user ? (
+            <button className="btn btn-sm mt-1 "aria-current="page"  style={{backgroundColor: "#9D34DA"}}
+            onClick={handleClick}
+            >
+            Logout
+            </button>
+          ) : (
+            <Link className="btn btn-sm mt-1 "aria-current="page" to="/auth/register" style={{backgroundColor: "#9D34DA"}}>
+                    Signup
           </Link>
+          )
+        }
         </li>
         {/* <li className="nav-item">
           <a className="nav-link" href="#">Feedback</a>
@@ -45,7 +64,7 @@ const Navbar = () => {
     </div>
   </div>
 </nav>
-    </div>
+    </>
   )
 }
 
