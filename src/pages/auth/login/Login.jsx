@@ -45,7 +45,7 @@ const Login = () => {
 
   const handleSubmit = (formData) => {
     setFormData(formData)
-    console.log("Submit form data: ",formData);
+
 }
   return (
     <>

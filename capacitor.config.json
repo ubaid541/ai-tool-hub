@@ -1,0 +1,6 @@
+{
+  "appId": "io.ionic.aitoolhub",
+  "appName": "ai-tool-hub",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

@@ -1,0 +1,29 @@
+{
+    "short_name": "Ai Tool Hub",
+    "name": "Ai Tool Hub",
+    "icons": [
+      {
+        "src": "/images/logoBlue-380x389.png",
+        "type": "image/png",
+        "sizes": "380x389"
+      },
+      {
+        "src": "/images/logoBlue-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose" : "maskable"
+      },
+      {
+        "src": "/images/logoBlue.png",
+        "type": "image/png",
+        "sizes": "144x144",
+        "purpose":"any"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+  }
+  
+  
