@@ -4,7 +4,7 @@ import routes from '../../routes'
 
 const AppContent = () => {
   return (
-    <div className='container'>
+    <div className='container-fluid'>
        <Suspense>
         <Routes>
             {routes.map((route,idx)=>{

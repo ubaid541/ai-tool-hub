@@ -17,14 +17,16 @@ const Home = () => {
       heading:"Image Ginie",
       desc : "Transform Your Ideas into Stunning Images with Ease.",
       img:imageginie,
-      link: "https://imageginie.netlify.app/"
+      link: "app/imageGinie"
+      // link: "https://imageginie.netlify.app/"
     },
     {
       id:2,
       heading:"Smart Assist",
       desc : "Get Instant and Accurate Answers powered by GPT-3.",
       img:assist,
-      link:"https://smart-assist-1.netlify.app/",
+      link:"app/smartAssist",
+      // link:"https://smart-assist-1.netlify.app/",
       appLink:"https://play.google.com/store/apps/details?id=io.ionic.smartassist"
     },
     {
@@ -32,7 +34,8 @@ const Home = () => {
       heading:"Summary Genius",
       desc : "Get a quick summary of long articles.",
       img:summarizer,
-      link:"https://summary-genius.netlify.app/"
+      // link:"https://summary-genius.netlify.app/"
+      link:"app/summaryGenius"
     }
   ]
   return (
@@ -48,6 +51,7 @@ const Home = () => {
             <img src={app?.img} className="card-img-top img-fluid  border-bottom border-dark" alt="app image" style={{height:"300px",width:"300px"}}
   />
 
+{/* apps list */}
   <div className="card-body">
     <h5 className="card-title mb-3">{app?.heading}</h5>
     <p className="card-text">{app?.desc}</p>
