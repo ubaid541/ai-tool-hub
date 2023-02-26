@@ -4,7 +4,7 @@
     background: #343541;
   } */
   
-#smart_assist {
+  /* #smart_assist {
     width: 100vw;
     height: 100vh;
     background: #343541;
@@ -29,7 +29,7 @@
   
     padding-bottom: 20px;
     scroll-behavior: smooth;
-  }
+  } */
   
   /* hides scrollbar */
   #chat_container::-webkit-scrollbar {
@@ -146,3 +146,5 @@
     width: 30px;
     height: 30px;
   }
+
+  

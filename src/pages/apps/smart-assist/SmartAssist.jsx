@@ -74,6 +74,7 @@ const SmartAssist = () => {
   
     const handleChange = (e)=>{
       // setinput_txt((prev) => ({ ...prev, [e.target.id]: e.target.value }))
+      console.log(e.target.value);
       setinput_txt(e.target.value)
     }
   
@@ -158,8 +159,7 @@ const SmartAssist = () => {
   
     return (
    <>
-   <seciton id="smart_assist" className="container-fluid">
-        <div id="chat_container" ></div>
+        {/* <div id="chat_container" ></div>
         <form className='chat_form'>
           <textarea
             id="txtarea"
@@ -171,8 +171,43 @@ const SmartAssist = () => {
             placeholder="Ask Something.."
           ></textarea>
           <button type="submit" onClick={handleSubmit}><img src="assets/send.svg" /></button>
-        </form>
-   </seciton>
+        </form> */}
+
+<div className="container-fluid" >
+      <div className="row justify-content-center">
+        <div className="col-md-12">
+          <div className="card">
+            <div className="card-headertext-white" style={{background:" #343541"}}>
+              <h4 className='text-white text-center my-3'>Smart Assist</h4>
+            </div>
+            <div className="card-body" id="chat_container" style={{background:"#343541", overflowY: "scroll", height: "300px"}}>
+              {/* Chat messages go here */}
+            </div>
+            <div className="card-footer fixed-bottom" style={{background:"#343541"}}>
+              <div className="form-group">
+                <textarea
+                  className="form-control chat-input mt-3"
+                  rows="1"
+                  cols="2"
+                  placeholder="Ask Something"
+                  value={input_txt}
+                  onChange={handleChange}
+                  onKeyPress={handleKeyPress}
+                  style={{background:"#40414F",color:"#fff",height:"50px"}}
+                ></textarea>
+                <button
+                  type="button"
+                  className="btn btn-primary send-btn my-4"
+                  onClick={handleSubmit}
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
      </>
     )
 }
