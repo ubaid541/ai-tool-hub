@@ -36,6 +36,14 @@ const Home = () => {
       img:summarizer,
       // link:"https://summary-genius.netlify.app/"
       link:"app/summaryGenius"
+    },
+    {
+      id:4,
+      heading:"Write Genius",
+      desc : "High quality content made easy with our ai content generator.",
+      img:summarizer,
+      // link:"https://summary-genius.netlify.app/"
+      link:"app/writeGenius"
     }
   ]
   return (
