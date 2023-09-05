@@ -7,6 +7,7 @@ import assist from "../../assets/images/app-img/assist.png"
 import summarizer from "../../assets/images/app-img/summarizer.png"
 import "../../components/GlobalCss.css"
 import { Header } from '../../components';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -44,41 +45,42 @@ const Home = () => {
       img:summarizer,
       // link:"https://summary-genius.netlify.app/"
       link:"app/writeGenius"
-    }
+    },
+  
   ]
   return (
     <>
 
-      <section id='app_list' className='my-5'>
-             <div className='row d-flex justify-content-center container'>
-          {
-            appData?.map((app,index)=>(
-              <div className='app card-group col-lg-3 col-md-4 col-12 text-center mx-4 my-4'>
-          <div key={appData?.id} className="card mx-auto" style={{width:"18rem"}}>
+<section id='app_list' className='my-5'>
+  <div className='container'>
+    <div className='row justify-content-center'>
+      {appData?.map((app, index) => (
+        <div className='col-lg-3 col-md-4 col-12 text-center my-4' key={index}>
+          <div className="card mx-auto" style={{ width: "18rem" }}>
+            <img src={app?.img} className="card-img-top img-fluid border-bottom border-dark" alt="app image" style={{ height: "300px", width: "300px" }} />
 
-            <img src={app?.img} className="card-img-top img-fluid  border-bottom border-dark" alt="app image" style={{height:"300px",width:"300px"}}
-  />
-
-{/* apps list */}
-  <div className="card-body">
-    <h5 className="card-title mb-3">{app?.heading}</h5>
-    <p className="card-text">{app?.desc}</p>
-   <div className='card-footer d-flex justify-content-between'>
-   <a href={app.link} className="btn btn-sm me-2" >
-    <BsFillArrowUpRightCircleFill className='me-1'/>Use</a>
-    {app?.appLink &&(
-       <a href={app?.appLink} className="btn btn-sm" target="_blank"><IoLogoGooglePlaystore className="me-1"/>Get App</a>
-
-    )
-    }
-   </div>
-  </div>
-</div>
+            <div className="card-body">
+              <h5 className="card-title mb-3">{app?.heading}</h5>
+              <p className="card-text">{app?.desc}</p>
+              <div className='card-footer d-flex justify-content-between'>
+                <Link href={app.link} className="btn btn-sm me-2">
+                  <BsFillArrowUpRightCircleFill className='me-1' />Use
+                </Link>
+                {app?.appLink && (
+                  <a href={app?.appLink} className="btn btn-sm" target="_blank">
+                    <IoLogoGooglePlaystore className="me-1" />Get App
+                  </a>
+                )}
+              </div>
+            </div>
           </div>
-            ))
-          }
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 </>
   )
 }
