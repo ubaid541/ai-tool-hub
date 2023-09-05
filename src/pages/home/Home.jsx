@@ -63,7 +63,7 @@ const Home = () => {
               <h5 className="card-title mb-3">{app?.heading}</h5>
               <p className="card-text">{app?.desc}</p>
               <div className='card-footer d-flex justify-content-between'>
-                <Link href={app.link} className="btn btn-sm me-2">
+                <Link to={app.link} className="btn btn-sm me-2">
                   <BsFillArrowUpRightCircleFill className='me-1' />Use
                 </Link>
                 {app?.appLink && (
